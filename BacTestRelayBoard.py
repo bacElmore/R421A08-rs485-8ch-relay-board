@@ -47,7 +47,7 @@ SERIAL_PORT = 'COM3'
 
 # Optional: Configure board address with 6 DIP switches on the relay board
 # Default address: 1
-address = 1
+address = 3
 
 # Optional: Give the relay board a name
 board_name = 'Bac Relay Board'
@@ -66,8 +66,12 @@ def print_relay_board_info(board):
 
 
 def relay_control(board):
-    print('Turn relay 1 on')
-    board.off(5)
+    print('Turn all relays on')
+    board.on_all()
+    time.sleep(3)
+
+    print('Turn all relays off')
+    board.off_all()
     time.sleep(1)
 
     #print('Turn relay 2 on')
